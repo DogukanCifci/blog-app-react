@@ -1,4 +1,4 @@
 const UpdateBlog = () => {
-  return <div></div>;
+  return <div>UPDATEBLOG</div>;
 };
 export default UpdateBlog;

@@ -1,4 +1,4 @@
 const Profile = () => {
-  return <div></div>;
+  return <div>PROFILE</div>;
 };
 export default Profile;

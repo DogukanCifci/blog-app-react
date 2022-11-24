@@ -1,4 +1,4 @@
 const Login = () => {
-  return <div></div>;
+  return <div>LOGIN</div>;
 };
 export default Login;

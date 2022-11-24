@@ -1,4 +1,4 @@
 const BlogCard = () => {
-  return <div></div>;
+  return <div>BLOGCARD</div>;
 };
 export default BlogCard;

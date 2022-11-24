@@ -1,4 +1,4 @@
 const Details = () => {
-  return <div></div>;
+  return <div>DETAILS</div>;
 };
 export default Details;

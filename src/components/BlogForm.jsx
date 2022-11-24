@@ -1,4 +1,4 @@
 const BlogForm = () => {
-  return <div></div>;
+  return <div>BLOGFORM</div>;
 };
 export default BlogForm;
