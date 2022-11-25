@@ -1,4 +1,26 @@
 import styled from "styled-components";
+
+export const Div = styled.div`
+  position: relative;
+  .google-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 28px;
+    left: 80px;
+    top: 10px;
+  }
+  .no-account {
+    font-weight: 700;
+    color: black;
+  }
+  .sign-up {
+    font-weight: 800;
+    color: purple;
+    margin-left: 10px;
+    font-size: 18px;
+  }
+`;
 export const LoginContainer = styled.div`
   width: 100%;
   display: flex;
@@ -24,7 +46,7 @@ export const LoginRightPart = styled.div`
   justify-content: center;
   min-height: 100vh;
   align-items: center;
-  background-color: #dc3535;
+  background-color: aliceblue;
 `;
 
 //=========INPUT STYLES =========
@@ -96,11 +118,28 @@ export const Button = styled.button`
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 6px;
   z-index: 1;
+  color: green;
+  font-weight: 600;
   &:hover {
     cursor: pointer;
   }
 `;
 
+export const GoogleButton = styled.button`
+  width: 400px;
+  height: 50px;
+  border: 1px solid green;
+  border-radius: 10px;
+  color: green;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background-color: white;
+  transition: 0.6s all ease-in-out;
+  &:hover {
+    cursor: pointer;
+    width: 380px;
+  }
+`;
 //======SPAN GROUP
 export const SpanGroup = styled.div`
   margin: 18px 0;

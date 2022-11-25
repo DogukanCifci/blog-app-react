@@ -1,6 +1,13 @@
+//=======ICONS IMPORT=======
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { FcGoogle } from "react-icons/fc";
+//==========================================
 import {
   Button,
   ButtonContainer,
+  Div,
+  GoogleButton,
   Input,
   InputGroup,
   LeftImg,
@@ -11,9 +18,8 @@ import {
 } from "../styles/LoginStyles";
 //import backgroundImg from "../assets/blob-scene-haikei.svg";
 import leftImage from "../assets/woman-login.png";
-import { MdEmail } from "react-icons/md";
-import { RiLockPasswordFill } from "react-icons/ri";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Login = () => {
   //=============DEGISKENLER=============
   const [mail, setMail] = useState("");
@@ -66,15 +72,15 @@ const Login = () => {
               />
               <label
                 htmlFor="rememberMe"
-                style={{ color: "white", fontWeight: 600 }}
+                style={{ color: "black", fontWeight: 600 }}
               >
-                Remember Me{" "}
+                Remember Me
               </label>
             </div>
             <span
               style={{
                 fontWeight: 600,
-                color: "white",
+                color: "black",
               }}
             >
               Forgot Password ?
@@ -85,6 +91,19 @@ const Login = () => {
             <div className="liquid"></div>
           </ButtonContainer>
         </form>
+        <Div>
+          <FcGoogle className="google-icon" />
+          <GoogleButton className="google-btn">
+            Continue With Google
+          </GoogleButton>
+        </Div>
+
+        <Div>
+          <span className="no-account">Don't you have an account ? </span>
+          <Link to="/register" className="sign-up">
+            Sign Up
+          </Link>
+        </Div>
       </LoginRightPart>
       <LoginLeftPart>
         <LeftImg src={leftImage} />
