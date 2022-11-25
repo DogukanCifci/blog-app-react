@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const MyNavbarContainer = styled.div`
   width: 100%;
-  background-color: blue;
+  background-color: #153462;
   color: white;
   height: 100px;
   display: flex;
@@ -13,7 +13,7 @@ export const MyNavbarContainer = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  width: 120px;
+  width: 200px;
 `;
 
 export const NavbarRightPart = styled.div`
@@ -22,14 +22,14 @@ export const NavbarRightPart = styled.div`
 `;
 
 export const Div = styled(Link)`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: white;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
   &:hover {
     transform: scale(1.1);
-    color: red;
+    color: #ff6d28;
   }
 `;
 

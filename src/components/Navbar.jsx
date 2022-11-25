@@ -38,7 +38,7 @@ const Navbar = () => {
         <Register user={user} to="/register">
           Register
         </Register>
-        <FaUser style={{ fontSize: "1.5rem", color: "white" }} />
+        <FaUser style={{ fontSize: "1.5rem", color: "#FF6D28" }} />
       </NavbarRightPart>
     </MyNavbarContainer>
   );
