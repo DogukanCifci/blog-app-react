@@ -17,12 +17,27 @@ import {
   LoginLeftPart,
   LoginRightPart,
 } from "../styles/LoginStyles";
+import { useState } from "react";
+import { createUser } from "../helpers/firebase";
+////===========FONKSIYON KISMINA GECIS ===========
 const Register = () => {
+  //Degiskenler
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerUserName, setRegisterUserName] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+
+  //Submit Oldugunda Fonksiyon Cagirma
+  const registerSubmit = (e) => {
+    e.preventDefault();
+    createUser(registerEmail, registerPassword, registerUserName);
+  };
+  ////===========DÖNDÜRME KISMINA GECIS ===========
+
   return (
     <LoginContainer>
       <LoginRightPart>
         <h1>REGISTER</h1>
-        <form>
+        <form onSubmit={registerSubmit}>
           <InputGroup
             style={{
               display: "flex",
@@ -49,6 +64,7 @@ const Register = () => {
                 className="input"
                 id="userName"
                 style={{ width: "200px" }}
+                onChange={(e) => setRegisterUserName(e.target.value)}
               />
             </InputGroup>
           </InputGroup>
@@ -64,11 +80,11 @@ const Register = () => {
               className="input"
               required
               placeholder="Enter an email"
-              //onChange={(e) => setMail(e.target.value)}
+              onChange={(e) => setRegisterEmail(e.target.value)}
             />
           </InputGroup>
           <InputGroup>
-            <label htmlFor="email" className="input-label">
+            <label htmlFor="password" className="input-label">
               Password
             </label>
             <RiLockPasswordFill className="icon" />
@@ -78,12 +94,12 @@ const Register = () => {
               className="input"
               required
               placeholder="Set a password"
-              // onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setRegisterPassword(e.target.value)}
             />
           </InputGroup>
 
           <ButtonContainer>
-            <Button type="submit">Register</Button>
+            <Button type="submit">Sign Up</Button>
             <div className="liquid"></div>
           </ButtonContainer>
         </form>
