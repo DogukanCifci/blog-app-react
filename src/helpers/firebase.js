@@ -10,6 +10,11 @@ import {
   signOut,
 } from "firebase/auth";
 
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "../helpers/toastNotify";
 //=====IMPORT KISIM BITIMI
 const firebaseConfig = {
   apiKey: "AIzaSyDmhD42P3U2DvWn34T96ue_1V0pnvWhjYY",
@@ -44,7 +49,7 @@ export const createUser = async (
       password
     );
     console.log(userCredential);
-    console.log("YENI KULLANICI OLUSTURULDU");
+    toastSuccessNotify("Yeni Kullanici Olusturuldu!");
     navigate("/");
     setUser({
       userName: userCredential.user.displayName
@@ -53,7 +58,7 @@ export const createUser = async (
       email: email,
     });
   } catch (error) {
-    alert(error.message);
+    toastErrorNotify(error.message.split("/")[1].split(")")[0].toUpperCase());
   }
 };
 
@@ -68,6 +73,7 @@ export const signIn = async (email, password, navigate, user, setUser) => {
     );
     navigate("/");
     console.log("Logged in successfully!", userCredential);
+    toastSuccessNotify("Logged in successfully!");
     setUser({
       userName: userCredential.user.displayName
         ? userCredential.user.displayName
@@ -75,7 +81,7 @@ export const signIn = async (email, password, navigate, user, setUser) => {
       email: email,
     });
   } catch (error) {
-    console.log(error.message);
+    toastErrorNotify(error.message.split("/")[1].split(")")[0].toUpperCase());
   }
 };
 
@@ -88,7 +94,7 @@ export const signInWithGoogle = (setUser, navigate) => {
     .then((result) => {
       console.log(result);
       navigate("/");
-      console.log("Logged in successfully with google!");
+      toastSuccessNotify("Logged in successfully with google!");
       setUser({
         userName: result.user.displayName,
         email: result.user.email,
@@ -96,7 +102,7 @@ export const signInWithGoogle = (setUser, navigate) => {
     })
     .catch((error) => {
       // Handle Errors here.
-      console.log(error);
+      toastErrorNotify(error.message.split("/")[1].split(")")[0].toUpperCase());
     });
 };
 
@@ -104,7 +110,7 @@ export const signInWithGoogle = (setUser, navigate) => {
 export const logOut = (setUser, navigate) => {
   signOut(auth);
   setUser({});
-  console.log("Logged out successfully!");
+  toastSuccessNotify("Logged out successfully!");
   navigate("/login");
 };
 
@@ -114,10 +120,10 @@ export const forgotPassword = (email) => {
   sendPasswordResetEmail(auth, email)
     .then(() => {
       // Password reset email sent!
-      alert("please check your mail box");
+      toastWarnNotify("Please check your mail box");
     })
     .catch((error) => {
-      alert(error.message.split("/")[1]);
+      toastErrorNotify(error.message.split("/")[1].split(")")[0].toUpperCase());
     });
 };
 
