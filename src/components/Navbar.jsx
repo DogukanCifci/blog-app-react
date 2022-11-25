@@ -25,7 +25,7 @@ const Navbar = () => {
         <LogoImg src={logoDogukan} />
       </Link>
       <NavbarRightPart>
-        <span>{user.userName ? "Dogukan" : ""}</span>
+        <span>{user ? user.userName : ""}</span>
         <Login to="/login" user={user}>
           Login
         </Login>

@@ -18,23 +18,28 @@ import {
 } from "../styles/LoginStyles";
 //import backgroundImg from "../assets/blob-scene-haikei.svg";
 import leftImage from "../assets/woman-login.png";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { signIn, signInWithGoogle } from "../helpers/firebase";
+import { AuthContext } from "../context/AuthContextProvider";
 const Login = () => {
   //=============DEGISKENLER=============
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const navigate = useNavigate();
 
+  //Global Degiskenleri Yakalama
+  const { user, setUser } = useContext(AuthContext);
   //=============Fonksiyonlar=============
-  const handleSubmit = (e) => {
+  const loginSubmit = (e) => {
     e.preventDefault();
-    console.log("Mail : ", mail, "Password :  ", password);
+    signIn(loginEmail, loginPassword, navigate, user, setUser);
   };
   return (
     <LoginContainer>
       <LoginRightPart>
         <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={loginSubmit}>
           <InputGroup>
             <label htmlFor="email" className="input-label">
               Email Adress
@@ -46,7 +51,7 @@ const Login = () => {
               className="input"
               required
               placeholder="Enter your email"
-              onChange={(e) => setMail(e.target.value)}
+              onChange={(e) => setLoginEmail(e.target.value)}
             />
           </InputGroup>
           <InputGroup>
@@ -60,7 +65,7 @@ const Login = () => {
               className="input"
               required
               placeholder="Enter your password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setLoginPassword(e.target.value)}
             />
           </InputGroup>
           <SpanGroup>
@@ -93,7 +98,10 @@ const Login = () => {
         </form>
         <Div>
           <FcGoogle className="google-icon" />
-          <GoogleButton className="google-btn">
+          <GoogleButton
+            className="google-btn"
+            onClick={() => signInWithGoogle(setUser, navigate)}
+          >
             Continue With Google
           </GoogleButton>
         </Div>

@@ -17,20 +17,33 @@ import {
   LoginLeftPart,
   LoginRightPart,
 } from "../styles/LoginStyles";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { createUser } from "../helpers/firebase";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContextProvider";
 ////===========FONKSIYON KISMINA GECIS ===========
 const Register = () => {
   //Degiskenler
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerUserName, setRegisterUserName] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
+  const navigate = useNavigate();
+
+  //Global Degiskenleri Yakalama
+  const { user, setUser } = useContext(AuthContext);
 
   //Submit Oldugunda Fonksiyon Cagirma
   const registerSubmit = (e) => {
     e.preventDefault();
-    createUser(registerEmail, registerPassword, registerUserName);
+    createUser(
+      registerEmail,
+      registerPassword,
+      registerUserName,
+      navigate,
+      setUser
+    );
   };
+
   ////===========DÖNDÜRME KISMINA GECIS ===========
 
   return (
