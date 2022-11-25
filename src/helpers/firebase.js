@@ -3,8 +3,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   GoogleAuthProvider,
+  onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 
 //=====IMPORT KISIM BITIMI
@@ -35,17 +38,18 @@ export const createUser = async (
 ) => {
   try {
     //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
-
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
-      password,
-      userName
+      password
     );
+    console.log(userCredential);
     console.log("YENI KULLANICI OLUSTURULDU");
     navigate("/");
     setUser({
-      userName: userName,
+      userName: userCredential.user.displayName
+        ? userCredential.user.displayName
+        : userCredential.user.email.split("@")[0],
       email: email,
     });
   } catch (error) {
@@ -57,11 +61,17 @@ export const createUser = async (
 export const signIn = async (email, password, navigate, user, setUser) => {
   try {
     //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
-    await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
     navigate("/");
-    console.log("Logged in successfully!");
+    console.log("Logged in successfully!", userCredential);
     setUser({
-      userName: "Dogukan",
+      userName: userCredential.user.displayName
+        ? userCredential.user.displayName
+        : userCredential.user.email.split("@")[0],
       email: email,
     });
   } catch (error) {
@@ -88,4 +98,43 @@ export const signInWithGoogle = (setUser, navigate) => {
       // Handle Errors here.
       console.log(error);
     });
+};
+
+//LOGOUT KISMI
+export const logOut = (setUser, navigate) => {
+  signOut(auth);
+  setUser({});
+  console.log("Logged out successfully!");
+  navigate("/login");
+};
+
+//FORGOT PASSWORD KISIM
+export const forgotPassword = (email) => {
+  //? Email yoluyla şifre sıfırlama için kullanılan firebase metodu
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      // Password reset email sent!
+      alert("please check your mail box");
+    })
+    .catch((error) => {
+      alert(error.message.split("/")[1]);
+    });
+};
+
+export const userObserver = (setCurrentUser) => {
+  //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("user observer calisiyor ", user);
+      const { email, displayName, photoURL } = user;
+      setCurrentUser({
+        email,
+        userName: displayName ? displayName : email.split("@")[0],
+        photoURL,
+      });
+    } else {
+      console.log("user logged out");
+      setCurrentUser({});
+    }
+  });
 };

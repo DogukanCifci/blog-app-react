@@ -20,7 +20,7 @@ import {
 import leftImage from "../assets/woman-login.png";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signIn, signInWithGoogle } from "../helpers/firebase";
+import { forgotPassword, signIn, signInWithGoogle } from "../helpers/firebase";
 import { AuthContext } from "../context/AuthContextProvider";
 const Login = () => {
   //=============DEGISKENLER=============
@@ -87,6 +87,7 @@ const Login = () => {
                 fontWeight: 600,
                 color: "black",
               }}
+              onClick={() => forgotPassword(loginEmail)}
             >
               Forgot Password ?
             </span>

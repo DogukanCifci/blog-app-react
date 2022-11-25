@@ -18,7 +18,7 @@ import {
   LoginRightPart,
 } from "../styles/LoginStyles";
 import { useContext, useState } from "react";
-import { createUser } from "../helpers/firebase";
+import { createUser, signInWithGoogle } from "../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 ////===========FONKSIYON KISMINA GECIS ===========
@@ -119,8 +119,11 @@ const Register = () => {
         <div style={{ marginBottom: "15px", fontWeight: 800 }}>Or</div>
         <Div>
           <FcGoogle className="google-icon" />
-          <GoogleButton className="google-btn">
-            Register With Google
+          <GoogleButton
+            className="google-btn"
+            onClick={() => signInWithGoogle(setUser, navigate)}
+          >
+            Continue With Google
           </GoogleButton>
         </Div>
       </LoginRightPart>
