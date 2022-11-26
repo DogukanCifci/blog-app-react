@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
-import { AddTechnologie } from "../helpers/functions";
+import { AddTechnologie, useFetch } from "../helpers/functions";
 import { Button, Div, Input, NewBlogContainer } from "../styles/NewBlogStyles";
 
 const NewBlog = () => {
@@ -13,12 +13,13 @@ const NewBlog = () => {
 
   //Güncel Tarih
   const date = new Date().toLocaleDateString("de-DE");
-  console.log(date);
-  console.log(user);
-  //fonksiyon
+  /* console.log(date);
+  console.log(user); */
+
+  //FONKSIYONLAR
   const newBlogSubmit = (e) => {
     e.preventDefault();
-    AddTechnologie(title, imageUrl, explain, date);
+    AddTechnologie(title, imageUrl, explain, date, user);
   };
   return (
     <NewBlogContainer>

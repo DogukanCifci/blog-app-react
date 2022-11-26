@@ -12,15 +12,14 @@ import { useState, useEffect } from "react";
 import { toastErrorNotify, toastSuccessNotify } from "./toastNotify";
 
 // Firebase Veri Ekleme
-export const AddTechnologie = (title, imageUrl, explain, date) => {
+export const AddTechnologie = (title, imageUrl, explain, date, user) => {
   const db = getDatabase(firebase);
-
   const technologieRef = ref(db, "technologies/");
   const newTechnologieRef = push(technologieRef);
-
+  console.log(user);
   set(newTechnologieRef, {
-    //  username: userName,
-    name: title,
+    username: user ? user.userName : user.email.split("@")[0],
+    title: title,
     imageUrl: imageUrl,
     text: explain,
     date: date,
@@ -29,7 +28,7 @@ export const AddTechnologie = (title, imageUrl, explain, date) => {
 };
 
 // Firebasedan Veri Çekme
-export const useFetch = () => {
+export const MyUseFetch = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [contactList, setContactList] = useState();
   useEffect(() => {
@@ -39,7 +38,7 @@ export const useFetch = () => {
     onValue(technologieRef, (snapshot) => {
       const data = snapshot.val();
       const userArray = [];
-
+      console.log("DATA :", data);
       for (let id in data) {
         userArray.push({ id, ...data[id] });
       }
