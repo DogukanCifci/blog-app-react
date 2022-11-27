@@ -28,11 +28,9 @@ const BlogCard = ({ element }) => {
       <Div className="text">
         <p>{text}</p>
       </Div>
+
       <Div>
-        <p>Author : {email}</p>
-      </Div>
-      <Div>
-        <p>Published Date : {date}</p>
+        <p className="publish-date">{date}</p>
       </Div>
     </BlogCardContainer>
   );

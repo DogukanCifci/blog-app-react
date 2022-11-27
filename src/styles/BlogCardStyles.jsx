@@ -13,7 +13,7 @@ export const BlogCardContainer = styled.div`
   .text {
     overflow: hidden;
     padding: 10px 5px;
-    height: 50px;
+    height: 70px;
     p {
       color: black;
     }
@@ -25,8 +25,16 @@ export const BlogCardContainer = styled.div`
 `;
 
 export const Div = styled.div`
+  position: relative;
   margin-bottom: 10px;
   font-weight: 600;
+
+  .publish-date {
+    position: absolute;
+    top: 60px;
+    right: 140px;
+  }
+
   p {
     color: #b01e68;
   }

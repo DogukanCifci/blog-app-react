@@ -65,7 +65,13 @@ export const createUser = async (
 };
 
 //Login with Email and Password
-export const signIn = async (email, password, navigate, user, setUser) => {
+export const signIn = async (
+  email,
+  password,
+  navigate,
+  setUser,
+  setCurrentUser
+) => {
   try {
     //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
     //mevcut user icin ben suan kendim biseyler atadim ama aslinda atamam gereken bilgi userCredential olmali. Birdahaki sefere öyle yap !!!
@@ -83,13 +89,14 @@ export const signIn = async (email, password, navigate, user, setUser) => {
         : userCredential.user.email.split("@")[0],
       email: email,
     });
+    setCurrentUser(userCredential);
   } catch (error) {
     toastErrorNotify(error.message.split("/")[1].split(")")[0].toUpperCase());
   }
 };
 
 //Google ile Giris Yapabilmek Icin
-export const signInWithGoogle = (setUser, navigate) => {
+export const signInWithGoogle = (setUser, navigate, setCurrentUser) => {
   //? Google ile giriş yapılması için kullanılan firebase metodu
   const provider = new GoogleAuthProvider();
   //? Açılır pencere ile giriş yapılması için kullanılan firebase metodu
@@ -102,6 +109,7 @@ export const signInWithGoogle = (setUser, navigate) => {
         userName: result.user.displayName,
         email: result.user.email,
       });
+      setCurrentUser("bbbbb");
     })
     .catch((error) => {
       // Handle Errors here.

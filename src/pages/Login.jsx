@@ -29,11 +29,20 @@ const Login = () => {
   const navigate = useNavigate();
 
   //Global Degiskenleri Yakalama
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, currentUser, setCurrentUser } =
+    useContext(AuthContext);
   //=============Fonksiyonlar=============
   const loginSubmit = (e) => {
     e.preventDefault();
-    signIn(loginEmail, loginPassword, navigate, user, setUser);
+    signIn(
+      loginEmail,
+      loginPassword,
+      navigate,
+      user,
+      setUser,
+      currentUser,
+      setCurrentUser
+    );
   };
   return (
     <LoginContainer>
@@ -101,7 +110,7 @@ const Login = () => {
           <FcGoogle className="google-icon" />
           <GoogleButton
             className="google-btn"
-            onClick={() => signInWithGoogle(setUser, navigate)}
+            onClick={() => signInWithGoogle(setUser, navigate, setCurrentUser)}
           >
             Continue With Google
           </GoogleButton>

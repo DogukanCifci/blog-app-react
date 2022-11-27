@@ -53,7 +53,7 @@ const NewBlog = () => {
             />
           </Div>
           <Div className="input-groups">
-            <label htmlFor="explain">Explain</label>
+            <label htmlFor="explain">Content</label>
             <textarea
               id="explain"
               className="tech-explain"
