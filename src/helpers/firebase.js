@@ -43,6 +43,8 @@ export const createUser = async (
 ) => {
   try {
     //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
+    //mevcut user icin ben suan kendim biseyler atadim ama aslinda atamam gereken bilgi userCredential olmali. Birdahaki sefere öyle yap !!!
+
     const userCredential = await createUserWithEmailAndPassword(
       auth,
       email,
@@ -66,6 +68,7 @@ export const createUser = async (
 export const signIn = async (email, password, navigate, user, setUser) => {
   try {
     //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
+    //mevcut user icin ben suan kendim biseyler atadim ama aslinda atamam gereken bilgi userCredential olmali. Birdahaki sefere öyle yap !!!
     const userCredential = await signInWithEmailAndPassword(
       auth,
       email,

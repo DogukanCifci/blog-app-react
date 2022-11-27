@@ -10,7 +10,7 @@ const BlogCard = ({ element }) => {
   //FONKSIYON
   const navigate = useNavigate();
   const getCardDetails = () => {
-    navigate(`/details/${id}`);
+    navigate(`/details/${id}`, { state: { element } });
     !user.userName && toastErrorNotify("Please Login Firstly!");
   };
 
