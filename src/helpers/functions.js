@@ -23,13 +23,13 @@ export const AddTechnologie = (title, imageUrl, explain, date, user) => {
     imageUrl: imageUrl,
     text: explain,
     date: date,
+    email: user.email,
   });
   toastSuccessNotify("Added Successfully");
 };
 
 // Firebasedan Veri Çekme
 export const MyUseFetch = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const [contactList, setContactList] = useState();
   useEffect(() => {
     const db = getDatabase(firebase);
@@ -38,16 +38,15 @@ export const MyUseFetch = () => {
     onValue(technologieRef, (snapshot) => {
       const data = snapshot.val();
       const userArray = [];
-      console.log("DATA :", data);
+      /*    console.log("DATA :", data); */
       for (let id in data) {
         userArray.push({ id, ...data[id] });
       }
       setContactList(userArray);
-      setIsLoading(false);
     });
   }, []);
 
-  return { isLoading, contactList };
+  return { contactList };
 };
 
 // Veriyi Silme

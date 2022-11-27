@@ -1,14 +1,21 @@
+import BlogCard from "../components/BlogCard";
 import { MyUseFetch } from "../helpers/functions";
+import { DashboardContainer } from "../styles/DashboardStyles";
 
 const Dashboard = () => {
   const { isLoading, contactList } = MyUseFetch();
-  const dashboardSubmit = () => {
+  console.log(contactList);
+  //Bu alttaki yöntem de kullanilabilir
+  /* useEffect(() => {
     console.log(contactList);
-  };
+  }, [contactList]); */
+
   return (
-    <div>
-      <button onClick={() => dashboardSubmit()}>GET</button>
-    </div>
+    <DashboardContainer>
+      {contactList?.map((element, idx) => {
+        return <BlogCard key={idx} element={element} isLoading={isLoading} />;
+      })}
+    </DashboardContainer>
   );
 };
 export default Dashboard;
