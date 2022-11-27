@@ -9,6 +9,7 @@ export const BlogCardContainer = styled.div`
   background-color: white;
   text-align: center;
   border-radius: 20%;
+  transition: 0.5s;
   .text {
     overflow: hidden;
     padding: 10px 5px;
@@ -16,6 +17,10 @@ export const BlogCardContainer = styled.div`
     p {
       color: black;
     }
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
   }
 `;
 

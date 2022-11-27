@@ -8,6 +8,7 @@ import NewBlog from "../pages/NewBlog";
 import Profile from "../pages/Profile";
 import Register from "../pages/Register";
 import UpdateBlog from "../pages/UpdateBlog";
+import PrivateRouter from "./PrivateRouter";
 
 const Router = () => {
   return (
@@ -20,7 +21,9 @@ const Router = () => {
         <Route path="/newblog" element={<NewBlog />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/updateblog" element={<UpdateBlog />} />
-        <Route path="/details" element={<Details />} />
+        <Route path="/details/:id" element={<PrivateRouter />}>
+          <Route path="" element={<Details />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
