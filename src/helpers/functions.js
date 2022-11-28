@@ -77,7 +77,8 @@ export const UpdateTechnologie = (
   date,
   email,
   username,
-  editedDate
+  editedDate,
+  navigate
 ) => {
   const db = getDatabase(firebase);
   // const technologieRef = ref(db, "technologies/");
@@ -93,6 +94,7 @@ export const UpdateTechnologie = (
     username: username,
     editedDate: editedDate,
   };
+  navigate("/");
   toastSuccessNotify("Updated");
   return update(ref(db), updates);
 };

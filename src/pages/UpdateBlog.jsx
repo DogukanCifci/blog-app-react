@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UpdateTechnologie } from "../helpers/functions";
 import {
   Button,
@@ -9,6 +9,7 @@ import {
 } from "../styles/UpdateBlogStyles";
 
 const UpdateBlog = () => {
+  const navigate = useNavigate();
   //Degiskenlerin AuthContexten Cekilmesi
   //Güncel Tarih
   /* console.log(date);
@@ -28,6 +29,11 @@ const UpdateBlog = () => {
   const [newImageUrl, setNewImageUrl] = useState(`${imageUrl}`);
   const [newContent, setNewContent] = useState(`${text}`);
   //FONKSIYONLAR
+  useEffect(() => {
+    fetch("https://blog-app-bdac3-default-rtdb.firebaseio.com/.json")
+      .then((response) => response.json())
+      .then((data) => console.log("DATAAAAA : ", data));
+  }, []);
   const UpdateClicked = () => {
     UpdateTechnologie(
       id,
@@ -37,7 +43,8 @@ const UpdateBlog = () => {
       date,
       email,
       username,
-      editedDate
+      editedDate,
+      navigate
     );
   };
   return (
