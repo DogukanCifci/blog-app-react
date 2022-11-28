@@ -40,6 +40,7 @@ export const Div = styled.div`
   }
   img {
     width: 100%;
+    height: 260px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

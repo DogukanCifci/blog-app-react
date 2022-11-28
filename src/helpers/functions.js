@@ -12,7 +12,14 @@ import { useState, useEffect } from "react";
 import { toastErrorNotify, toastSuccessNotify } from "./toastNotify";
 
 // Firebase Veri Ekleme
-export const AddTechnologie = (title, imageUrl, explain, date, user) => {
+export const AddTechnologie = (
+  title,
+  imageUrl,
+  explain,
+  date,
+  user,
+  navigate
+) => {
   const db = getDatabase(firebase);
   const technologieRef = ref(db, "technologies/");
   const newTechnologieRef = push(technologieRef);
@@ -25,7 +32,9 @@ export const AddTechnologie = (title, imageUrl, explain, date, user) => {
     date: date,
     email: user.email,
   });
+
   toastSuccessNotify("Added Successfully");
+  navigate("/");
 };
 
 // Firebasedan Veri Çekme

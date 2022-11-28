@@ -4,12 +4,15 @@ import styled from "styled-components";
 export const MyNavbarContainer = styled.div`
   width: 100%;
   background-color: #153462;
+  opacity: 0.8;
   color: white;
   height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  position: fixed;
+  z-index: 1;
 `;
 
 export const LogoImg = styled.img`

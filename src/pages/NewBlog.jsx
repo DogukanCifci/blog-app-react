@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
-import { AddTechnologie, useFetch } from "../helpers/functions";
+import { AddTechnologie } from "../helpers/functions";
 import { Button, Div, Input, NewBlogContainer } from "../styles/NewBlogStyles";
 
 const NewBlog = () => {
   //Useri yakalama
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   //Degiskenler
   const [title, setTitle] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -19,7 +21,7 @@ const NewBlog = () => {
   //FONKSIYONLAR
   const newBlogSubmit = (e) => {
     e.preventDefault();
-    AddTechnologie(title, imageUrl, explain, date, user);
+    AddTechnologie(title, imageUrl, explain, date, user, navigate);
   };
   return (
     <NewBlogContainer>

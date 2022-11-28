@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   return (
     <DashboardDiv>
-      <h1>---------- DASHBOARD ----------</h1>
+      <h1></h1>
       <DashboardContainer contactList={contactList}>
         {contactList ? (
           contactList.map((element, idx) => {

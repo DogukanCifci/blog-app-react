@@ -17,10 +17,7 @@ const BlogCard = ({ element }) => {
   return (
     <BlogCardContainer onClick={() => getCardDetails()}>
       <Div>
-        <img
-          src="https://images.pexels.com/photos/12704642/pexels-photo-12704642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt=""
-        />
+        <img src={imageUrl} alt="" />
       </Div>
       <Div>
         <h2>{title}</h2>

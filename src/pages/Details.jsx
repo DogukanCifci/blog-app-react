@@ -46,7 +46,7 @@ const Details = () => {
             <span style={{ color: "purple" }}>Publish Date :</span> {date}
           </p>
           <p>
-            <span style={{ color: "purple" }}>Author :</span> {user.userName}
+            <span style={{ color: "purple" }}>Author :</span> {email}
           </p>
         </Div>
         {user.email === email ? (
