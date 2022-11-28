@@ -1,5 +1,4 @@
 import {
-  Div,
   Login,
   LogoImg,
   Logout,
@@ -7,7 +6,6 @@ import {
   NavbarRightPart,
   New,
   Register,
-  Space,
 } from "../styles/NavbarStyles";
 import logoDogukan from "../assets/logo.png";
 import { FaUser } from "react-icons/fa";

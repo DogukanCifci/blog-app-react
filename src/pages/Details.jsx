@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import { DeleteTechnologie } from "../helpers/functions";
 import {
@@ -28,6 +28,12 @@ const Details = () => {
   const item = location.state.element;
   console.log(item);
   const { date, email, id, imageUrl, text, title } = item;
+  console.log("ITEM : ", item);
+  //Fonksiyonlar
+
+  const updateFunction = () => {
+    navigate(`/updateblog/${id}`, { state: { item } });
+  };
   return (
     <DetailsContainer>
       <Div>
@@ -55,7 +61,7 @@ const Details = () => {
             <Button onClick={() => DeleteTechnologie(id, navigate)}>
               Delete
             </Button>
-            <UpdateButton>Update</UpdateButton>
+            <UpdateButton onClick={() => updateFunction()}>Update</UpdateButton>
           </ButtonContainer>
         ) : (
           ""

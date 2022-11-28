@@ -69,12 +69,30 @@ export const DeleteTechnologie = (id, navigate) => {
 
 // Veriyi Değiştirme
 
-export const UpdateTechnologie = (info) => {
+export const UpdateTechnologie = (
+  id,
+  newTitle,
+  newImageUrl,
+  newContent,
+  date,
+  email,
+  username,
+  editedDate
+) => {
   const db = getDatabase(firebase);
   // const technologieRef = ref(db, "technologies/");
   const updates = {};
 
-  updates["technologies/" + info.id] = info;
-
+  updates["technologies/" + id] = {
+    id: id,
+    title: newTitle,
+    imageUrl: newImageUrl,
+    text: newContent,
+    date: date,
+    email: email,
+    username: username,
+    editedDate: editedDate,
+  };
+  toastSuccessNotify("Updated");
   return update(ref(db), updates);
 };
