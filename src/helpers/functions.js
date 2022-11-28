@@ -60,10 +60,11 @@ export const MyUseFetch = () => {
 
 // Veriyi Silme
 
-export const DeleteTechnologie = (id) => {
+export const DeleteTechnologie = (id, navigate) => {
   const db = getDatabase(firebase);
   remove(ref(db, "technologies/" + id));
   toastErrorNotify("Deleted Successfully");
+  navigate("/");
 };
 
 // Veriyi Değiştirme

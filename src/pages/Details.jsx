@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
-
+import { DeleteTechnologie } from "../helpers/functions";
 import {
   Button,
   ButtonContainer,
@@ -12,10 +12,11 @@ import {
 
 const Details = () => {
   const { currentUser, user } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log("CURRENT USER : ", currentUser);
   //1.YOL USEPARAMSILE IDYI YAKALAYIP SONRA TÜM ELEMANLARIN IDSINI KARSILASTIRIP SADECE ID'SI TUTANIN ÖZELLIKLERINI GÖSTER
   //burdaki id Router'da yazdigimkeyword ile ayni olmak zorunda
-  /* const { id } = useParams();
+  /*  const { id } = useParams();
   console.log(id); */
   //contact listi buraya state olarak alip icinde map ile gezinmeliyim.
 
@@ -51,7 +52,9 @@ const Details = () => {
         </Div>
         {user.email === email ? (
           <ButtonContainer>
-            <Button>Delete</Button>
+            <Button onClick={() => DeleteTechnologie(id, navigate)}>
+              Delete
+            </Button>
             <UpdateButton>Update</UpdateButton>
           </ButtonContainer>
         ) : (

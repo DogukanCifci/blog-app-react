@@ -10,7 +10,7 @@ export const DetailsContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   color: red;
-  padding: 20px;
+  padding: 120px 20px;
 `;
 
 export const Div = styled.div`
@@ -51,7 +51,7 @@ export const Button = styled.button`
   background-color: red;
   padding: 20px 40px;
   border-radius: 20px;
-  opacity: 0.8;
+  opacity: 0.6;
   transition: all 0.5s ease-in-out;
   margin: 20px;
   font-weight: 600;
