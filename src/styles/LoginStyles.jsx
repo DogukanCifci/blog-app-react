@@ -58,11 +58,17 @@ export const Input = styled.input`
   outline: 2px solid #fff;
   width: 400px;
   font-size: 18px;
+  transition: all 0.3s ease-in-out;
   @media (max-width: 866px) {
     width: 300px;
   }
   @media (max-width: 650px) {
     width: 200px;
+  }
+  &:hover {
+    background-color: #fed049;
+    color: black;
+    padding: 15px 20px 10px 55px;
   }
 `;
 

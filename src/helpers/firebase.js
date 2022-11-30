@@ -51,7 +51,7 @@ export const createUser = async (
       password
     );
     console.log(userCredential);
-    toastSuccessNotify("Yeni Kullanici Olusturuldu!");
+    toastSuccessNotify("New User Created Successfully!");
     navigate("/");
     setUser({
       userName: userCredential.user.displayName

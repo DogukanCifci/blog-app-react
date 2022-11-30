@@ -67,10 +67,12 @@ const Register = () => {
                 className="input"
                 id="name"
                 style={{ width: "200px" }}
+                placeholder="Name"
+                required
               />
             </InputGroup>
             <InputGroup>
-              <label htmlFor="userName">User Name </label>
+              <label htmlFor="userName">Surname </label>
               <FaUser className="icon" />
               <Input
                 type="text"
@@ -78,6 +80,8 @@ const Register = () => {
                 id="userName"
                 style={{ width: "200px" }}
                 onChange={(e) => setRegisterUserName(e.target.value)}
+                placeholder="Surname"
+                required
               />
             </InputGroup>
           </InputGroup>

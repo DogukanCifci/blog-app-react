@@ -52,6 +52,12 @@ const Details = () => {
           <p>
             <span style={{ color: "purple" }}>Publish Date :</span> {date}
           </p>
+          {item.editedDate && (
+            <p>
+              <span style={{ color: "purple" }}>Edit Date :</span>
+              {item.editedDate}
+            </p>
+          )}
           <p>
             <span style={{ color: "purple" }}>Author :</span> {email}
           </p>
