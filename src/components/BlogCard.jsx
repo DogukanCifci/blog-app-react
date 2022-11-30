@@ -27,7 +27,12 @@ const BlogCard = ({ element }) => {
       </Div>
 
       <Div>
-        <p className="publish-date">{date}</p>
+        <p className="publish-date">Publish Date : {date}</p>
+      </Div>
+      <Div>
+        {element.editedDate && (
+          <p className="edited-date">Edit Date : {element.editedDate}</p>
+        )}
       </Div>
     </BlogCardContainer>
   );

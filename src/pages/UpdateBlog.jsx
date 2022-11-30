@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { UpdateTechnologie } from "../helpers/functions";
 import {
   Button,
@@ -14,35 +14,32 @@ const UpdateBlog = () => {
   //Güncel Tarih
   /* console.log(date);
   console.log(user); */
-
+  /*  const { id } = useParams();
+  console.log(id); */
   ////======BASLANGIC=========
-  /* const { id } = useParams();
-  console.log("ID: ", id); */
+  const location = useLocation();
+  const element = location.state.item;
+
+  const [title, setTitle] = useState(element.title);
+  const [imageUrl, setImageUrl] = useState(element.imageUrl);
+  const [text, setText] = useState(element.text);
+  console.log(element);
+
   const editedDate = new Date().toLocaleDateString("de-DE");
 
   //state ile gönderilen infoyu yakalama
-  const location = useLocation();
-  const detail = location.state.item;
-  const { id, date, email, imageUrl, text, title, username } = detail;
-  console.log(detail);
-  const [newTitle, setNewTitle] = useState(`${title}`);
-  const [newImageUrl, setNewImageUrl] = useState(`${imageUrl}`);
-  const [newContent, setNewContent] = useState(`${text}`);
+
   //FONKSIYONLAR
-  useEffect(() => {
-    fetch("https://blog-app-bdac3-default-rtdb.firebaseio.com/.json")
-      .then((response) => response.json())
-      .then((data) => console.log("DATAAAAA : ", data));
-  }, []);
+
   const UpdateClicked = () => {
     UpdateTechnologie(
-      id,
-      newTitle,
-      newImageUrl,
-      newContent,
-      date,
-      email,
-      username,
+      element.id,
+      title,
+      imageUrl,
+      text,
+      element.date,
+      element.email,
+      element.username,
       editedDate,
       navigate
     );
@@ -60,8 +57,8 @@ const UpdateBlog = () => {
               type="search"
               placeholder="Title"
               id="title"
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
             />
           </Div>
@@ -71,8 +68,8 @@ const UpdateBlog = () => {
               type="search"
               placeholder="Image URL"
               id="image-url"
-              value={newImageUrl}
-              onChange={(e) => setNewImageUrl(e.target.value)}
+              value={imageUrl}
+              onChange={(e) => setImageUrl(e.target.value)}
               required
             />
           </Div>
@@ -81,8 +78,8 @@ const UpdateBlog = () => {
             <textarea
               id="explain"
               className="tech-explain"
-              value={newContent}
-              onChange={(e) => setNewContent(e.target.value)}
+              value={text}
+              onChange={(e) => setText(e.target.value)}
               required
             />
           </Div>

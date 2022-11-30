@@ -31,10 +31,14 @@ export const Div = styled.div`
 
   .publish-date {
     position: absolute;
-    top: 60px;
-    right: 140px;
+    top: 20px;
+    right: 100px;
   }
-
+  .edited-date {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+  }
   p {
     color: #b01e68;
   }
