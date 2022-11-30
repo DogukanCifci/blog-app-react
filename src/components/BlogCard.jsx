@@ -5,13 +5,14 @@ import { BlogCardContainer, Div } from "../styles/BlogCardStyles";
 import { AuthContext } from "../context/AuthContextProvider";
 
 const BlogCard = ({ element }) => {
-  const { user } = useContext(AuthContext);
+  const { user, setToggle } = useContext(AuthContext);
   const { id, title, date, imageUrl, text, username, email } = element;
   //FONKSIYON
   const navigate = useNavigate();
   const getCardDetails = () => {
     navigate(`/details/${id}`, { state: { element } });
     !user.userName && toastErrorNotify("Please Login Firstly!");
+    setToggle(false);
   };
 
   return (

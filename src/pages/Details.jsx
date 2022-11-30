@@ -11,7 +11,7 @@ import {
 } from "../styles/DetailsStyles";
 
 const Details = () => {
-  const { currentUser, user } = useContext(AuthContext);
+  const { currentUser, user, setToggle } = useContext(AuthContext);
   const navigate = useNavigate();
   console.log("CURRENT USER : ", currentUser);
   //1.YOL USEPARAMSILE IDYI YAKALAYIP SONRA TÜM ELEMANLARIN IDSINI KARSILASTIRIP SADECE ID'SI TUTANIN ÖZELLIKLERINI GÖSTER
@@ -35,7 +35,7 @@ const Details = () => {
     navigate(`/updateblog/${id}`, { state: { item } });
   };
   return (
-    <DetailsContainer>
+    <DetailsContainer onClick={() => setToggle(false)}>
       <Div>
         <img src={imageUrl} alt="" />
         <h1>{title}</h1>

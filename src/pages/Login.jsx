@@ -29,7 +29,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   //Global Degiskenleri Yakalama
-  const { user, setUser, currentUser, setCurrentUser } =
+  const { user, setUser, currentUser, setCurrentUser, setToggle } =
     useContext(AuthContext);
   //=============Fonksiyonlar=============
   const loginSubmit = (e) => {
@@ -45,7 +45,7 @@ const Login = () => {
     );
   };
   return (
-    <LoginContainer>
+    <LoginContainer onClick={() => setToggle(false)}>
       <LoginRightPart>
         <h1>Login</h1>
         <form onSubmit={loginSubmit}>

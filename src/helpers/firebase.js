@@ -104,7 +104,7 @@ export const signInWithGoogle = (setUser, navigate, setCurrentUser) => {
     .then((result) => {
       console.log(result);
       navigate("/");
-      toastSuccessNotify("Logged in successfully with google!");
+      toastSuccessNotify("Logged in successfully!");
       setUser({
         userName: result.user.displayName,
         email: result.user.email,

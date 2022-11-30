@@ -3,17 +3,17 @@ import styled from "styled-components";
 export const NewBlogContainer = styled.div`
   form {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: aliceblue;
+    background-color: #f6f6c9;
+    padding-bottom: 30px;
   }
 
   .input-container {
     width: 40%;
-
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -21,13 +21,16 @@ export const NewBlogContainer = styled.div`
   }
   .logo {
     img {
-      width: 200px;
+      width: 250px;
       margin-bottom: 20px;
+      margin-top: 100px;
     }
     h3 {
+      font-size: 30px;
       text-align: center;
       margin-bottom: 20px;
-      color: blue;
+      color: #00abb3;
+      font-family: "Nerko One", cursive;
     }
   }
 `;
@@ -37,10 +40,14 @@ export const Div = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
+    margin-bottom: 5px;
+
     label {
       font-weight: 800;
-      color: black;
-      font-size: 18px;
+      color: #0e5e6f;
+      font-size: 22px;
+      margin-bottom: 10px;
+      font-family: "Nerko One", cursive;
     }
   }
   .tech-explain {
@@ -51,6 +58,8 @@ export const Div = styled.div`
     min-width: 100%;
     border: none;
     border-radius: 10px;
+    font-family: "Nerko One", cursive;
+    font-size: 18px;
   }
 `;
 
@@ -61,6 +70,7 @@ export const Input = styled.input`
   border: 2px solid orange;
   border: none;
   border-radius: 10px;
+  font-family: "Nerko One", cursive;
 `;
 
 export const Button = styled.button`

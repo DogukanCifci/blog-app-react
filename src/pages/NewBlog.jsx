@@ -6,7 +6,7 @@ import { Button, Div, Input, NewBlogContainer } from "../styles/NewBlogStyles";
 
 const NewBlog = () => {
   //Useri yakalama
-  const { user } = useContext(AuthContext);
+  const { user, setToggle } = useContext(AuthContext);
   const navigate = useNavigate();
   //Degiskenler
   const [title, setTitle] = useState("");
@@ -24,7 +24,7 @@ const NewBlog = () => {
     AddTechnologie(title, imageUrl, explain, date, user, navigate);
   };
   return (
-    <NewBlogContainer>
+    <NewBlogContainer onClick={() => setToggle(false)}>
       <form onSubmit={newBlogSubmit}>
         <Div className="logo">
           <img
@@ -61,6 +61,7 @@ const NewBlog = () => {
               className="tech-explain"
               required
               onChange={(e) => setExplain(e.target.value)}
+              placeholder="Content"
             />
           </Div>
         </Div>

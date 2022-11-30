@@ -51,12 +51,14 @@ export const NavbarRightPart = styled.div`
     }
   }
   .user-name {
+    text-transform: capitalize;
     font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 10px;
     font-size: 20px;
+    gap: 10px;
   }
 `;
 
@@ -86,7 +88,7 @@ export const Div = styled(Link)`
 
 export const Login = styled(Div)`
   display: ${({ user }) => (user.userName ? "none" : "block")};
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 export const Logout = styled(Div)`
   display: ${({ user }) => (user.userName ? "block" : "none")};

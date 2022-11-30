@@ -19,22 +19,21 @@ import { logOut } from "../helpers/firebase";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [toggle, setToggle] = useState(false);
   //AuthContext'ten degiskenleri cekme
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, toggle, setToggle } = useContext(AuthContext);
   console.log(user);
   console.log(toggle);
   return (
     <MyNavbarContainer>
-      <Link to="/">
+      <Link to="/" onClick={() => setToggle(false)}>
         <LogoImg src={logoDogukan} />
       </Link>
       <MiddleNav>
         <h1>{"< BLOG PAGE />"}</h1>
       </MiddleNav>
       <NavbarRightPart>
-        <span className="user-name">{user ? user.userName : ""}</span>
-        <YaziPart toggle={toggle} user={user}>
+        <span className="user-name"> {user ? user.userName : ""}</span>
+        <YaziPart toggle={toggle} user={user} onClick={() => setToggle(false)}>
           <Login to="/login" user={user}>
             Login
           </Login>

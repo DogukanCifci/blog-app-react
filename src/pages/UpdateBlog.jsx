@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../context/AuthContextProvider";
 import { UpdateTechnologie } from "../helpers/functions";
 import {
   Button,
@@ -10,6 +11,7 @@ import {
 
 const UpdateBlog = () => {
   const navigate = useNavigate();
+  const { setToggle } = useContext(AuthContext);
   //Degiskenlerin AuthContexten Cekilmesi
   //Güncel Tarih
   /* console.log(date);
@@ -45,7 +47,7 @@ const UpdateBlog = () => {
     );
   };
   return (
-    <UpdateBlogContainer>
+    <UpdateBlogContainer onClick={() => setToggle(false)}>
       <form>
         <Div className="logo">
           <h3>UPDATE PAGE</h3>

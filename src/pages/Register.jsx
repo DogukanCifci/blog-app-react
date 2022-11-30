@@ -30,7 +30,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   //Global Degiskenleri Yakalama
-  const { user, setUser } = useContext(AuthContext);
+  const { setUser, setToggle } = useContext(AuthContext);
 
   //Submit Oldugunda Fonksiyon Cagirma
   const registerSubmit = (e) => {
@@ -47,7 +47,7 @@ const Register = () => {
   ////===========DÖNDÜRME KISMINA GECIS ===========
 
   return (
-    <LoginContainer>
+    <LoginContainer onClick={() => setToggle(false)}>
       <LoginRightPart>
         <h1>REGISTER</h1>
         <form onSubmit={registerSubmit}>
