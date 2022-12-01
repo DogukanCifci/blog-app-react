@@ -3,7 +3,7 @@ import { userObserver } from "../helpers/firebase";
 export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const [currentUser, setCurrentUser] = useState("aaa");
+  const [currentUser, setCurrentUser] = useState([]);
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -11,7 +11,14 @@ const AuthContextProvider = ({ children }) => {
   }, []);
   return (
     <AuthContext.Provider
-      value={{ user, setUser, setCurrentUser, currentUser, toggle, setToggle }}
+      value={{
+        user,
+        setUser,
+        setCurrentUser,
+        currentUser,
+        toggle,
+        setToggle,
+      }}
     >
       {children}
     </AuthContext.Provider>

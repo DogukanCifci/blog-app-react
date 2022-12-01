@@ -31,7 +31,6 @@ export const ProfileContainer = styled.div`
       }
     }
     .right-part {
-      border: 1px solid red;
       padding: 30px 50px;
       h1 {
         margin-bottom: 100px;
@@ -61,10 +60,12 @@ export const Info = styled.div`
   span.info {
     margin-left: 100px;
     font-size: 20px;
+    text-align: start;
   }
-  span.label {
+  div.label {
     color: purple;
     font-weight: 700;
     font-size: 24px;
+    margin-bottom: 10px;
   }
 `;

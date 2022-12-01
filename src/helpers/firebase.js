@@ -58,6 +58,8 @@ export const createUser = async (
         ? userCredential.user.displayName
         : userCredential.user.email.split("@")[0],
       email: email,
+      createdDate: userCredential.user.metadata.creationTime,
+      lastLogin: userCredential.user.metadata.lastSignInTime,
     });
   } catch (error) {
     toastErrorNotify(error.message.split("/")[1].split(")")[0].toUpperCase());
@@ -88,6 +90,8 @@ export const signIn = async (
         ? userCredential.user.displayName
         : userCredential.user.email.split("@")[0],
       email: email,
+      createdDate: userCredential.user.metadata.creationTime,
+      lastLogin: userCredential.user.metadata.lastSignInTime,
     });
     setCurrentUser(userCredential);
   } catch (error) {
@@ -108,6 +112,8 @@ export const signInWithGoogle = (setUser, navigate, setCurrentUser) => {
       setUser({
         userName: result.user.displayName,
         email: result.user.email,
+        createdDate: result.user.metadata.creationTime,
+        lastLogin: result.user.metadata.lastSignInTime,
       });
       setCurrentUser("bbbbb");
     })

@@ -1,18 +1,21 @@
+import { useContext } from "react";
 import BlogCard from "../components/BlogCard";
+import { AuthContext } from "../context/AuthContextProvider";
 import { MyUseFetch } from "../helpers/functions";
 import { DashboardContainer, DashboardDiv } from "../styles/DashboardStyles";
 
 const Dashboard = () => {
   const { isLoading, contactList } = MyUseFetch();
+  const { setCurrentUser, currentUser } = useContext(AuthContext);
   console.log(contactList);
   //Bu alttaki yöntem de kullanilabilir
   /* useEffect(() => {
     console.log(contactList);
   }, [contactList]); */
-
+  setCurrentUser(contactList);
+  console.log("newinfos : ", currentUser);
   return (
     <DashboardDiv>
-      <h1></h1>
       <DashboardContainer contactList={contactList}>
         {contactList ? (
           contactList.map((element, idx) => {

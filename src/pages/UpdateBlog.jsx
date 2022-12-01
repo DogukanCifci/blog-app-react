@@ -25,7 +25,7 @@ const UpdateBlog = () => {
   const [title, setTitle] = useState(element.title);
   const [imageUrl, setImageUrl] = useState(element.imageUrl);
   const [text, setText] = useState(element.text);
-  console.log(element);
+  console.log("Elewment", element);
 
   const editedDate = new Date().toLocaleDateString("de-DE");
 
