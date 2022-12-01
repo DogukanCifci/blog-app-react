@@ -25,14 +25,14 @@ const NewBlog = () => {
   };
   return (
     <NewBlogContainer onClick={() => setToggle(false)}>
+      <Div className="logo">
+        <img
+          src="https://www.transparentpng.com/thumb/technology/png-best-technology-6.png"
+          alt=""
+        />
+        {/* <h3>Add a New Technology</h3> */}
+      </Div>
       <form onSubmit={newBlogSubmit}>
-        <Div className="logo">
-          <img
-            src="https://www.transparentpng.com/thumb/technology/png-best-technology-6.png"
-            alt=""
-          />
-          <h3>Add a New Technology</h3>
-        </Div>
         <Div className="input-container">
           <Div className="input-groups">
             <label htmlFor="title">Title</label>

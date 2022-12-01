@@ -1,29 +1,36 @@
 import styled from "styled-components";
 
 export const NewBlogContainer = styled.div`
+  display: flex;
+  background-color: #bad1c2;
   form {
-    width: 100%;
+    width: 80%;
     min-height: 100vh;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #f6f6c9;
+    background-color: #bad1c2;
     padding-bottom: 30px;
   }
 
   .input-container {
-    width: 40%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     padding: 5px;
     gap: 10px;
   }
   .logo {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 300px;
     img {
-      width: 250px;
-      margin-bottom: 20px;
-      margin-top: 100px;
+      height: 500px;
+      transform: rotate(270deg);
     }
     h3 {
       font-size: 30px;
