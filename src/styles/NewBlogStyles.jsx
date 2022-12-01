@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const NewBlogContainer = styled.div`
   display: flex;
   background-color: #bad1c2;
+  @media (max-width: 880px) {
+    flex-direction: column;
+  }
   form {
     width: 80%;
     min-height: 100vh;
@@ -13,6 +16,10 @@ export const NewBlogContainer = styled.div`
     flex-direction: column;
     background-color: #bad1c2;
     padding-bottom: 30px;
+    @media (max-width: 880px) {
+      padding-top: 0;
+      margin-inline: auto;
+    }
   }
 
   .input-container {
@@ -31,6 +38,18 @@ export const NewBlogContainer = styled.div`
     img {
       height: 500px;
       transform: rotate(270deg);
+      @media (max-width: 1158px) {
+        height: 400px;
+      }
+      @media (max-width: 932px) {
+        height: 350px;
+      }
+      @media (max-width: 880px) {
+        height: 250px;
+        transform: rotate(0);
+        margin: 100px auto;
+        margin-bottom: 0;
+      }
     }
     h3 {
       font-size: 30px;

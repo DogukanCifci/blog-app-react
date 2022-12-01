@@ -9,7 +9,7 @@ export const ProfileContainer = styled.div`
   .container {
     display: flex;
     .left-part {
-      background-color: black;
+      background-color: #100f0f;
       padding-top: 30px;
       border: 2px solid black;
       width: 500px;
@@ -23,7 +23,7 @@ export const ProfileContainer = styled.div`
         height: 250px;
       }
       h3 {
-        color: white;
+        color: purple;
         font-size: 30px;
         margin-top: 20px;
         text-decoration: underline;
@@ -31,9 +31,11 @@ export const ProfileContainer = styled.div`
       }
     }
     .right-part {
+      border: 1px solid red;
       padding: 30px 50px;
       h1 {
         margin-bottom: 100px;
+        text-align: center;
       }
     }
   }
@@ -41,7 +43,6 @@ export const ProfileContainer = styled.div`
 
 export const MyLink = styled(Link)`
   text-decoration: none;
-  color: black;
   font-size: 30px;
   margin-top: 30px;
   text-align: center;
@@ -59,8 +60,11 @@ export const Info = styled.div`
   margin-bottom: 30px;
   span.info {
     margin-left: 100px;
+    font-size: 20px;
   }
   span.label {
+    color: purple;
     font-weight: 700;
+    font-size: 24px;
   }
 `;

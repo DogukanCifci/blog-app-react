@@ -24,6 +24,9 @@ export const UpdateBlogContainer = styled.div`
     img {
       width: 200px;
       margin-bottom: 20px;
+      @media (max-width: 1158px) {
+        width: 150px;
+      }
     }
     h3 {
       text-align: center;

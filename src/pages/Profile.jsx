@@ -26,10 +26,7 @@ const Profile = () => {
             <span className="label">Email</span>
             <span className="info">{user.email}</span>
           </Info>
-          <Info>
-            <span className="label">Full Name </span>
-            <span className="info">{user.userName}</span>
-          </Info>
+          <h1 style={{ marginTop: "60px" }}>Recent Project</h1>
         </div>
       </div>
     </ProfileContainer>
