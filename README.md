@@ -72,9 +72,9 @@ Build a Register FireBlog App using ReactJS.
 
 - ReactJS
 
--Firebase
+- Firebase
 
--RealTime Database (Write-Read-Update-Delete)
+- RealTime Database (Write-Read-Update-Delete)
 
 ### At the end of the project, students will be able to;
 
